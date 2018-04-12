@@ -1,0 +1,82 @@
+
+.background {
+width: 1500px;
+height: 800px;
+  border: 2px black solid;
+  margin: 0 auto;
+  position :relative;
+}
+#fond{
+  width: 1500px;
+  height: 800px;
+  opacity: 0.8;
+}
+#perso {
+  z-index: 200;
+      position: absolute;
+      top: 300px;
+      left: 1100px;
+
+}
+.images {
+  width: 150px;
+  height: 150px;
+
+}
+#bon {
+    position: absolute;
+     z-index: 100;
+     display: none;
+
+}
+#mauvais {
+
+       z-index: 100;
+       position: absolute;
+       display: none;
+}
+
+button {
+  font-family: monospace;
+  font-size:38px;
+  padding:10px;
+}
+.Jeu{
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  height: 100px;
+  align-items: center;
+  background: grey;
+  margin: 0 auto;
+margin-top: 100px;
+  transition: height 1s ease;
+
+}
+
+#perso{
+
+  animation-duration: 3s;
+  animation-name: "flip";
+}
+
+
+
+
+#jouer{
+  text-align: center;
+}
+
+.Jeu:hover{
+height:200px;
+cursor: pointer;
+}
+.Jeu:hover #jouer{
+  border: black 1px solid
+  color #000
+
+}
+.jeuxX{
+  display: none;
+
+}
