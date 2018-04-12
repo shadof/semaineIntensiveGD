@@ -1,0 +1,97 @@
+/*---------HEADER---------*/
+
+header{
+  background-color: #9bc2c5;
+  opacity: 0.7;
+}
+header div.titre img.logo{
+  width: 80px;
+}
+header div.titre{
+  text-align: center;
+}
+header div.titre h1{
+  font-size: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Disco Duck 3D" ;
+  color: #e27a14;
+  display: inline-block;
+}
+header div.reseaux img.reseaux_sociaux{
+  width: 50px;
+}
+
+/*---------BODY---------*/
+
+img.background{
+  position: absolute;
+  z-index: -1222;
+  width: 100%;
+  opacity: 0.7;
+}
+div.container_background{
+  width: 100%;
+  height: 732px;
+  display: flex;
+}
+
+div.container_background{
+  width: 100%;
+  position: absolute;
+  align-items: flex-end;
+}
+
+div.container_background div.mission{
+  margin-right: 200px;
+  position: relative;
+  bottom: -20px;
+  left: 200px;
+  width: 400px;
+  height: 300px;
+  background-color: #9bc2c5;
+  opacity: 0.7;
+  color: #e27a14;
+  font-family: "Changa" ;
+  font-size: 30px;
+  border-radius: 5px;
+  line-height: 25px;
+}
+div.container_background div.mission h3{
+  text-align: center;
+}
+
+div.container_background div.règles{
+  margin-left: 200px;
+  position: relative;
+  bottom: -20px;
+  left: 300px;
+  width: 400px;
+  height: 300px;
+  background-color: #9bc2c5;
+  opacity: 0.7;
+  color: #e27a14;
+  font-family: "Changa" ;
+  font-size: 30px;
+  border-radius: 5px;
+  line-height: 25px;
+}
+div.container_background div.règles h3{
+  text-align: center;
+}
+div.container_background a{
+  font-family: "Disco Dunk 3D" ;
+  position: relative;
+  right: 460px;
+  bottom: 480px;
+  width: 250px;
+  height: 70px;
+  opacity: 0.7;
+  color: #e27a14;
+  background: none;
+  border: 0px solid black;
+}
+div.container_background a img{
+  width: 250px;
+
+}
