@@ -5,34 +5,20 @@ let stopDetection = ""
 let minX = 0
 let maxX = 1350
 let press = false
-let j = 0
 
 // création des collisions
 let obstacles =  [
-  {ymin:120, ymax: 190, xmin: 60, xmax:190},
-  {ymin:170, ymax: 350, xmin: 550, xmax:670},
-  {ymin:450, ymax: 550, xmin: 170, xmax:290},
-  {ymin:70, ymax: 170, xmin: 910, xmax:1030},
-  {ymin:10, ymax: 190, xmin: 1220, xmax:1360},
-  {ymin:460, ymax: 600, xmin: 930, xmax:990},
-  {ymin:450, ymax: 510, xmin: 990, xmax:1140},
-  {ymin:510, ymax: 600, xmin: 1080, xmax:1150},
-  {ymin:-70, ymax: 670, xmin: -60, xmax:40},
-  {ymin:660, ymax: 670, xmin: 40, xmax:1450},
-  {ymin:-120, ymax: -40, xmin: 30, xmax:1450},
-  {ymin:-120, ymax: -40, xmin: -70, xmax:40},
-  {ymin:-70, ymax: 661, xmin: 1380, xmax:1450}
+  {ymin:0,ymax:200,xmin:0,sxmax:200}
 ]
 
 // variables des personnages
-
-let fond = document.querySelectorAll('.fond')
 let perso
 let posY = 300
 let posX = 600
 let dir = 1
 let mechant = ['images/julien.png','images/mauvais.gif','images/mauvais2.gif','images/mauvais3.gif']                   // mettre les url des images ......................................
 let goods = ['images/bon.gif','images/francesca.png']
+let fond = document.getElementById('fond')
 let creatureG = document.createElement('div')
 let creatureM = document.createElement('div')
 creatureG.setAttribute('id','bon','class','images')
@@ -42,6 +28,7 @@ creatureM.style.display = 'none'
 document.querySelector(".jeuxX").appendChild(creatureG, creatureM)
 
 let jouer = document.querySelector('.Jeu')
+let opacite = jouer.style.opacity
 
 // création du tableau des scores
 let tableau = document.querySelector('table')
@@ -83,53 +70,13 @@ vert.style.background = 'green'
 texte2.style.fontFamily = 'Changa'
 texte2.style.textAlign = 'center'
 vert.style.display = 'none'
-
-function choixCarte(){
-  let map = fond[j]
-}
-//MAP 2
-function map(){
-  choixCarte()
-  generatePerso()
-  youWin()
-  countDown()//démarrage du conteur de temps
-  deplacement()
-  afficheElements()
-  setInterval(afficheElements,3000)
-  setInterval(collisions,500)           // interval de regard de collision
-}
-map()
-
-function map2(){
-  choixCarte()
-  generatePerso()
-  youWin()
-  countDown()
-  deplacement()
-  afficheElements()
-  setInterval(afficheElements,3000)
-  setInterval(collisions,500)
-}
-
-function map3(){
-  choixCarte()
-  generatePerso()
-  youWin()
-  countDown()
-  deplacement()
-  afficheElements()
-  setInterval(afficheElements,3000)
-  setInterval(collisions,500)
-}
-
-
-
-
 // création du personnage
 function generatePerso(){
 perso = document.getElementById("perso")
 }
+generatePerso()
 
+countDown() //démarrage du conteur de temps
 tableau.appendChild(userName)
 
 // choix de l'image à éviter
@@ -160,15 +107,17 @@ jouer.addEventListener('click', function(){
   tableau.style.display = 'inline-block'
 },false )
 
-function deplacement(){
+let deplacement = ()=> {
 
   window.addEventListener(
     "keypress",
     function(e){
       let stopDetection = 0;
 
+
+      console.log(collaps())
       if (e.keyCode==100){
-        if(collaps(posX+30, posY)){
+        if(collaps(posX+1, posY)){
           posX += 10
           perso.style.left = posX + "px"
           dir=1
@@ -176,7 +125,8 @@ function deplacement(){
         }
       }
       else if (e.keyCode==97){
-        if(collaps(posX-30, posY)){
+        console.log(dir)
+        if(collaps(posX-1, posY)){
           posX -=10
           perso.style.left = posX + "px"
           dir=3
@@ -184,15 +134,15 @@ function deplacement(){
         }
        }
        else if (e.keyCode == 119){
-         if(collaps(posX, posY-30)){
-           posY -10
+         if(collaps(posX, posY-1)){
+           posY -=10
            perso.style.top = posY + "px"
            dir=0
            press = true
          }
        }
        else if (e.keyCode==115){
-         if(collaps(posX, posY+30)){
+         if(collaps(posX, posY+1)){
            posY +=10
            perso.style.top = posY + "px"
            dir = 2
@@ -200,12 +150,12 @@ function deplacement(){
          }
        }
   })
-}
 
-// collision avec les objets
+}
+deplacement();
 function collaps(posX, posY) {
   for (let i = 0; i < obstacles.length; i++) {
-    if ((posX > obstacles[j][i].xmin && posX < obstacles[j][i].xmax)  && (posY > obstacles[j][i].ymin && posY < obstacle[j][i].ymax)){
+    if ((posX > obstacles[i].xmin && posX < obstacles[i].xmax)  && (posY > obstacles[i].ymin && posY < obstacles[i].ymax)){
       return 0;
     }
   }
@@ -214,8 +164,8 @@ function collaps(posX, posY) {
 
 function afficheElements()                  //affichage des images à récupérer ou à éviter
 {
-  let elemX = Math.floor(Math.random()* 850); // position de l'image
-  let elemY = Math.floor(Math.random()* 450);
+  let elemX = Math.floor(Math.random()*fond.style.left - 150); // position de l'image
+  let elemY = Math.floor(Math.random()*fond.style.top - 150);
   let elemType = Math.floor(Math.random()*2);                 // choix de quel type d'image afficher
   if (elemType == 0)
   {
@@ -277,7 +227,8 @@ function collisions()                          // collision entre les personnage
     tableau.appendChild(tabScore)
   }
 }
-      // interval de ragerd de collision
+setInterval(afficheElements, 2000); // temps entre deux images à afficher
+setInterval(collisions, 500);       // interval de ragerd de collision
 
  // compteur de temps
 function countDown() {
@@ -316,7 +267,7 @@ function gameOver(){
 }
 
 function youWin(){
-  if (tabScore == 25 || francesca == 1 || utilisateur == 'OnEstDansLaMerde') {
+  if (tabScore == 25 || francesca == 1 || userName == 'OnEstDansLaMerde' ) {
     setTimeOut(
       function  win(){
         vert.style.display = "inline-block"
@@ -326,12 +277,7 @@ function youWin(){
     vert.style.display = 'none'
     document.querySelector('.Jeu').style.display =  'none' // changement d'état
     document.querySelector(".jeuxX").style.display = "block"
-    j++
-    if (j == 1) {
-      map2()
-    }
-    else if (j == 2 ) {
-      map3()
-    }
   }
+
 }
+
