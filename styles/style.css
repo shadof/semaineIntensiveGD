@@ -3,13 +3,12 @@
 width: 1500px;
 height: 800px;
   border: 2px black solid;
-  margin-left: 2.5%;
-  margin-top: 2%;
+  margin: 0 auto;
   position :relative;
 }
 .fond{
-  width: 1000px;
-  height: 600px;
+  width: 1500px;
+  height: 800px;
   opacity: 0.8;
 }
 .images {
@@ -54,9 +53,6 @@ cursor: pointer;
 }
 
 table{
-  position: absolute;
-  top: 20px;
-  right: 50px;
   border: #000 1px solid;
   border-collapse: collapse;
   margin-top: 20px;
