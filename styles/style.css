@@ -1,46 +1,30 @@
 
 .background {
-width: 1500px;
-height: 800px;
+width: 1000px;
+height: 600px;
   border: 2px black solid;
-  margin: 0 auto;
+  margin-left: 2.5%;
+  margin-top: 2%;
   position :relative;
 }
-#fond{
-  width: 1500px;
-  height: 800px;
+.fond{
+  width: 1000px;
+  height: 600px;
   opacity: 0.8;
-}
-#perso {
-  z-index: 200;
-      position: absolute;
-      top: 300px;
-      left: 1100px;
-
 }
 .images {
   width: 150px;
   height: 150px;
-
+  z-index:100;
+  position: absolute;
 }
-#bon {
-    position: absolute;
-     z-index: 100;
-     display: none;
-
-}
-#mauvais {
-
-       z-index: 100;
-       position: absolute;
-       display: none;
+#perso {
+  z-index: 200;
+  position: absolute;
+  top: 300px;
+  left: 600px;
 }
 
-button {
-  font-family: monospace;
-  font-size:38px;
-  padding:10px;
-}
 .Jeu{
   display: flex;
   justify-content: space-around;
@@ -49,19 +33,9 @@ button {
   align-items: center;
   background: grey;
   margin: 0 auto;
-margin-top: 100px;
+  margin-top: 100px;
   transition: height 1s ease;
-
 }
-
-#perso{
-
-  animation-duration: 3s;
-  animation-name: "flip";
-}
-
-
-
 
 #jouer{
   text-align: center;
@@ -74,9 +48,20 @@ cursor: pointer;
 .Jeu:hover #jouer{
   border: black 1px solid
   color #000
-
 }
 .jeuxX{
   display: none;
+}
 
+table{
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  border: #000 1px solid;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table th, td{
+  width: 80px;
+  border: #000 1px solid;
 }
