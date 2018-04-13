@@ -167,7 +167,7 @@ function deplacement(){
     function(e){
       let stopDetection = 0;
 
-      if (e.keyCode==39){
+      if (e.keyCode==100){
         if(collaps(posX+30, posY)){
           posX += 10
           perso.style.left = posX + "px"
@@ -175,7 +175,7 @@ function deplacement(){
           press = true
         }
       }
-      else if (e.keyCode==37){
+      else if (e.keyCode==97){
         if(collaps(posX-30, posY)){
           posX -=10
           perso.style.left = posX + "px"
@@ -183,7 +183,7 @@ function deplacement(){
           press = true
         }
        }
-       else if (e.keyCode == 38){
+       else if (e.keyCode == 119){
          if(collaps(posX, posY-30)){
            posY -10
            perso.style.top = posY + "px"
@@ -191,7 +191,7 @@ function deplacement(){
            press = true
          }
        }
-       else if (e.keyCode==40){
+       else if (e.keyCode==115){
          if(collaps(posX, posY+30)){
            posY +=10
            perso.style.top = posY + "px"
